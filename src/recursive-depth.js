@@ -1,6 +1,10 @@
 module.exports = class DepthCalculator {
-    calculateDepth(/* arr */) {
-        throw 'Not implemented';
-        // remove line with error and write your code here
+  calculateDepth(arr) {
+    if (!Array.isArray(arr)) {
+      throw "Not implemented";
     }
+    return Array.isArray(arr)
+      ? 1 + Math.max(...arr.map(this.calculateDepth))
+      : 0;
+  }
 };
